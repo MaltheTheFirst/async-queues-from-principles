@@ -1,0 +1,14 @@
+services:
+  postgres:
+    image: postgres:17.5-bookworm
+    environment:
+      POSTGRES_USER: async_queues
+      POSTGRES_PASSWORD: local_development_only
+      POSTGRES_DB: async_queues_dev
+    ports:
+      - "127.0.0.1:15435:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
